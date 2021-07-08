@@ -47,7 +47,7 @@ publish_pacts:
 ## =====================
 
 test:
-	dotnet test tests
+	dotnet test -d tests
 
 
 ## =====================
