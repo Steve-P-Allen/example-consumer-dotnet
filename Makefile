@@ -47,7 +47,7 @@ publish_pacts:
 ## =====================
 
 test:
-	dotnet test --no-restore --verbosity normal tests
+	dotnet test tests
 
 
 ## =====================
