@@ -23,27 +23,25 @@ jobs:
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: eric
-        run: ls -lR
       - name: Install dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: make build 
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: ['3.1.x']
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
       - name: Test
-        run: dotnet test --no-restore --verbosity normal
-  # test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2-beta
-  #       with:
-  #         node-version: '12'
-  #     - name: Install
-  #       run: npm i
-  #     - name: Test
-  #       run: make test
-  #     - name: Publish pacts
-  #       run: TRAVIS_BRANCH=${TRAVIS_BRANCH:11} make publish_pacts
+        run: make test
+      # - name: Publish pacts
+      #   run: TRAVIS_BRANCH=${TRAVIS_BRANCH:11} make publish_pacts
 
   # Runs on branches as well, so we know the status of our PRs
   # can-i-deploy:
