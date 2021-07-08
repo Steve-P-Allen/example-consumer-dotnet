@@ -26,7 +26,7 @@ restore:
 
 build:
 	dotnet build --configuration Release --no-restore src
-	dotnet build --no-restore test
+	dotnet build --no-restore tests
 
 ci: clean restore test publish_pacts can_i_deploy $(DEPLOY_TARGET)
 
@@ -47,7 +47,7 @@ publish_pacts:
 ## =====================
 
 test:
-	dotnet test -d tests
+	dotnet test --no-restore --verbosity normal tests
 
 
 ## =====================
