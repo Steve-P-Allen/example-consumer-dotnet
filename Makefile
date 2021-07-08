@@ -24,6 +24,10 @@ restore:
 	dotnet restore src
 	dotnet restore tests
 
+build:
+	dotnet build --configuration Release --no-restore src
+	dotnet build --no-restore test
+
 ci: clean restore test publish_pacts can_i_deploy $(DEPLOY_TARGET)
 
 # Run the ci target from a developer machine with the environment variables
@@ -43,7 +47,7 @@ publish_pacts:
 ## =====================
 
 test:
-	dotnet test tests
+	dotnet test --no-restore --verbosity normal tests
 
 
 ## =====================

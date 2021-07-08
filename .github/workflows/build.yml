@@ -12,7 +12,7 @@ env:
   TRAVIS_BRANCH: ${{ github.ref }}
 
 jobs:
-  build:
+  buildtest:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,17 +27,6 @@ jobs:
         run: dotnet restore
       - name: Build
         run: make build 
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet-version: ['3.1.x']
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v1.7.2
-        with:
-          dotnet-version: ${{ matrix.dotnet-version }}
       - name: Test
         run: make test
       # - name: Publish pacts
