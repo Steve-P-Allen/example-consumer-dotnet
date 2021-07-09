@@ -42,8 +42,8 @@ namespace tests
                                     {
                                         id = "27",
                                         name = "burger",
-                                        type = "food"//,
-                                        //nice = false
+                                        type = "food",
+                                        nice = false
                                     }, 1)
                                 });
 
