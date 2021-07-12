@@ -22,7 +22,7 @@ namespace tests
             // Using Spec version 2.0.0 more details at https://goo.gl/UrBSRc
             var pactConfig = new PactConfig
             {
-                SpecificationVersion = "3.0.0",
+                SpecificationVersion = "2.0.0",
                 PactDir = @"..\..\..\..\pacts",
                 LogDir = @".\pact_logs"
             };
