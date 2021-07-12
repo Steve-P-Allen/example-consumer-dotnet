@@ -61,7 +61,7 @@ can_i_deploy:
 	  --pacticipant ${PACTICIPANT} \
 	  --version ${GITHUB_COMMIT} \
 	  --to prod \
-	  --retry-while-unknown 120 \
+	  --retry-while-unknown 0 \
 	  --retry-interval 10
 
 deploy_app:
