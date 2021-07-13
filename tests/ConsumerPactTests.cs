@@ -30,12 +30,6 @@ namespace tests
         {
                         // Arrange
 
-            Product prod = new Product {
-                id = 69,
-                name = "chhesse",
-                type = "warrior"
-            };
-        
             _mockProviderService.Given("several products exist")
                 .UponReceiving("A request to get a product that exists")
                 .With(new ProviderServiceRequest
@@ -49,13 +43,12 @@ namespace tests
                     {
                         { "Content-Type", "application/json; charset=utf-8" }
                     },
-                    Body = Match.Type(prod)
 
-                    // Body = Match.Type(new {
-                    //     id = 27,
-                    //     name = "burger",
-                    //     type = "food"
-                    // })
+                    Body = Match.Type(new {
+                        id = 27,
+                        name = "burger",
+                        type = "food"
+                    })
                     // Body = new 
                     // {
                     //     id = Match.Type("27"),
