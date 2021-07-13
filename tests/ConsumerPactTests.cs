@@ -46,7 +46,6 @@ namespace tests
                                         id = Match.Type("27"),
                                         name = Match.Regex("burger", @"\w"),
                                         type = Match.Regex("food", @"\w"),
-                                        nice = Match.Type(true)
                                     }}
                                 });
 
