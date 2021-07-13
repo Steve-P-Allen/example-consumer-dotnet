@@ -20,7 +20,7 @@
         },
         "body": [
           {
-            "id": "27",
+            "id": 27,
             "name": "burger",
             "type": "food"
           }
@@ -48,7 +48,7 @@
           "Content-Type": "application/json; charset=utf-8"
         },
         "body": {
-          "id": "27",
+          "id": 27,
           "name": "burger",
           "type": "food"
         },

@@ -42,7 +42,7 @@ namespace tests
                                     },
 
                                     Body = Match.Type(new {
-                                        id = "27",
+                                        id = 27,
                                         name = "burger",
                                         type = "food"
                                     })
@@ -78,7 +78,7 @@ namespace tests
                                     },
                                     Body = new MinTypeMatcher(new
                                     {
-                                        id = "27",
+                                        id = 27,
                                         name = "burger",
                                         type = "food"
                                     }, 1)
