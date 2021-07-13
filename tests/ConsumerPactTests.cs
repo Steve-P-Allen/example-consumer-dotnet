@@ -28,7 +28,7 @@ namespace tests
                         // Arrange
         
             _mockProviderService.Given("several products exist")
-                                .UponReceiving("A request to get products")
+                                .UponReceiving("A request to get all products")
                                 .With(new ProviderServiceRequest
                                 {
                                     Method = HttpVerb.Get,
