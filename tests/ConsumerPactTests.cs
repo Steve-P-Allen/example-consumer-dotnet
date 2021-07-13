@@ -5,6 +5,7 @@ using PactNet.Mocks.MockHttpService.Models;
 using Consumer;
 using System.Collections.Generic;
 using PactNet.Matchers.Type;
+using PactNet.Matchers;
 using FluentAssertions;
 
 namespace tests
@@ -19,6 +20,37 @@ namespace tests
             _mockProviderService = fixture.MockProviderService;
             _mockProviderService.ClearInteractions(); //NOTE: Clears any previously registered interactions before the test is run
             _mockProviderServiceBaseUri = fixture.MockProviderServiceBaseUri;
+        }
+
+        [Fact]
+        public async void RetrieveProducts1()
+        {
+                        // Arrange
+        
+            _mockProviderService.Given("several products exist")
+                                .UponReceiving("A request to get products")
+                                .With(new ProviderServiceRequest
+                                {
+                                    Method = HttpVerb.Get,
+                                    Path = "/products",
+                                })
+                                .WillRespondWith(new ProviderServiceResponse {
+                                    Status = 200,
+                                    Headers = new Dictionary<string, object>
+                                    {
+                                        { "Content-Type", "application/json; charset=utf-8" }
+                                    },
+                                    Body = new
+                                    {
+                                        id = "27",
+                                        name = "burger",
+                                        type = "food"
+                                    }
+                                });
+
+            // Act
+            var consumer = new ProductClient();
+            List<Product> result = await consumer.GetProducts(_mockProviderServiceBaseUri);
         }
 
         [Fact]
@@ -42,9 +74,8 @@ namespace tests
                                     {
                                         id = "27",
                                         name = "burger",
-                                        type = "food"//,
-                                        //nice = false
-                                    }, 1)
+                                        type = "food"
+                                    }, 2)
                                 });
 
             // Act
