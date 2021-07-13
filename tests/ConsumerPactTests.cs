@@ -42,9 +42,10 @@ namespace tests
                                     },
                                     Body = new [] { new 
                                     {
-                                        id = "27",
-                                        name = "burger",
-                                        type = "food"
+                                        id = Match.Type("27"),
+                                        name = Match.Regex("burger", @"\w"),
+                                        type = Match.Regex("food", @"\w"),
+                                        nice = Match.Type(true)
                                     }}
                                 });
 
