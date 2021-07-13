@@ -40,12 +40,12 @@ namespace tests
                                     {
                                         { "Content-Type", "application/json; charset=utf-8" }
                                     },
-                                    Body = new
+                                    Body = new [] { new 
                                     {
                                         id = "27",
                                         name = "burger",
                                         type = "food"
-                                    }
+                                    }}
                                 });
 
             // Act
