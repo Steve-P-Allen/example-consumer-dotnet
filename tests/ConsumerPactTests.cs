@@ -75,7 +75,7 @@ namespace tests
                                         id = "27",
                                         name = "burger",
                                         type = "food"
-                                    }, 2)
+                                    }, 1)
                                 });
 
             // Act
