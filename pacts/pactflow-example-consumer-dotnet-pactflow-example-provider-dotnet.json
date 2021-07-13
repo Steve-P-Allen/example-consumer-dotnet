@@ -48,13 +48,17 @@
           "Content-Type": "application/json; charset=utf-8"
         },
         "body": {
-          "id": 69,
-          "type": "warrior",
-          "name": "chhesse"
+          "id": "27",
+          "name": "burger",
+          "type": "food"
         },
         "matchingRules": {
           "$.body": {
             "match": "type"
+          },
+          "$.body.id": {
+            "match": "regex",
+            "regex": "\\d{2}"
           }
         }
       }

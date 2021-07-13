@@ -45,16 +45,10 @@ namespace tests
                     },
 
                     Body = Match.Type(new {
-                        id = 27,
+                        id = Match.Regex("27", @"\d{2}"),
                         name = "burger",
                         type = "food"
                     })
-                    // Body = new 
-                    // {
-                    //     id = Match.Type("27"),
-                    //     name = Match.Regex("burger", @"\w"),
-                    //     type = Match.Regex("food", @"\w"),
-                    // }
                 });
 
             // Act
