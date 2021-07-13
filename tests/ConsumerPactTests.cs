@@ -57,7 +57,7 @@ namespace tests
         public async void RetrieveProducts()
         {
             // Arrange
-            _mockProviderService.Given("several products exist")
+            _mockProviderService.Given("products exist")
                                 .UponReceiving("A request to get products")
                                 .With(new ProviderServiceRequest
                                 {
@@ -75,7 +75,7 @@ namespace tests
                                         id = "27",
                                         name = "burger",
                                         type = "food"
-                                    }, 1)
+                                    }, 2)
                                 });
 
             // Act
