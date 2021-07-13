@@ -20,11 +20,16 @@
         },
         "body": [
           {
-            "id": "27",
-            "name": "burger",
-            "type": "food"
+            "id": "31",
+            "name": "eric",
+            "type": "terror"
           }
-        ]
+        ],
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
       }
     },
     {

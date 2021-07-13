@@ -40,13 +40,21 @@ namespace tests
                                     {
                                         { "Content-Type", "application/json; charset=utf-8" }
                                     },
-                                    Body = new [] { new 
-                                    {
-                                        id = Match.Type("27"),
-                                        name = Match.Regex("burger", @"\w"),
-                                        type = Match.Regex("food", @"\w"),
-                                        nice = Match.Type(true)
+                                    Body = new TypeMatcher(new[]  { new
+                                        {
+                                        id = "31",
+                                        name="eric",
+                                        type="terror"
                                     }}
+
+                                    )
+                                    // Body = new [] { new 
+                                    // {
+                                    //     id = Match.Type("27"),
+                                    //     name = Match.Regex("burger", @"\w"),
+                                    //     type = Match.Regex("food", @"\w"),
+                                    //     nice = Match.Type(true)
+                                    // }}
                                 });
 
             // Act
