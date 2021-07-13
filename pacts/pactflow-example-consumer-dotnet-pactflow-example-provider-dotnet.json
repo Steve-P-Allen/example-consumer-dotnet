@@ -7,32 +7,6 @@
   },
   "interactions": [
     {
-      "description": "A request to get all products",
-      "providerState": "several products exist",
-      "request": {
-        "method": "get",
-        "path": "/products"
-      },
-      "response": {
-        "status": 200,
-        "headers": {
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": [
-          {
-            "id": "31",
-            "name": "eric",
-            "type": "terror"
-          }
-        ],
-        "matchingRules": {
-          "$.body": {
-            "match": "type"
-          }
-        }
-      }
-    },
-    {
       "description": "A request to get products",
       "providerState": "products exist",
       "request": {
@@ -56,6 +30,30 @@
             "min": 1
           },
           "$.body[*].*": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "A request to get a product that exists",
+      "providerState": "several products exist",
+      "request": {
+        "method": "get",
+        "path": "/product/1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "id": "27",
+          "name": "burger",
+          "type": "food"
+        },
+        "matchingRules": {
+          "$.body": {
             "match": "type"
           }
         }

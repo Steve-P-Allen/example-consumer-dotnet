@@ -27,5 +27,17 @@ namespace Consumer
 
             return JsonConvert.DeserializeObject<List<Product>>(resp);
         }
+
+        public async Task<Product> GetProduct(string baseUrl, string id, HttpClient? httpClient = null)
+        {
+            using var client = httpClient == null ? new HttpClient() : httpClient;
+
+            var response = await client.GetAsync(baseUrl + "/product/" + id);
+            response.EnsureSuccessStatusCode();
+
+            var resp = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<Product>(resp);
+        }
     }
 }

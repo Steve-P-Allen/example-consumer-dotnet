@@ -23,16 +23,16 @@ namespace tests
         }
 
         [Fact]
-        public async void RetrieveProducts1()
+        public async void RetrieveProduct()
         {
                         // Arrange
         
             _mockProviderService.Given("several products exist")
-                                .UponReceiving("A request to get all products")
+                                .UponReceiving("A request to get a product that exists")
                                 .With(new ProviderServiceRequest
                                 {
                                     Method = HttpVerb.Get,
-                                    Path = "/products",
+                                    Path = "/product/1",
                                 })
                                 .WillRespondWith(new ProviderServiceResponse {
                                     Status = 200,
@@ -40,18 +40,23 @@ namespace tests
                                     {
                                         { "Content-Type", "application/json; charset=utf-8" }
                                     },
-                     
-                                    Body = new [] { new 
-                                    {
-                                        id = Match.Type("27"),
-                                        name = Match.Regex("burger", @"\w"),
-                                        type = Match.Regex("food", @"\w"),
-                                    }}
+
+                                    Body = Match.Type(new {
+                                        id = "27",
+                                        name = "burger",
+                                        type = "food"
+                                    })
+                                    // Body = new 
+                                    // {
+                                    //     id = Match.Type("27"),
+                                    //     name = Match.Regex("burger", @"\w"),
+                                    //     type = Match.Regex("food", @"\w"),
+                                    // }
                                 });
 
             // Act
             var consumer = new ProductClient();
-            List<Product> result = await consumer.GetProducts(_mockProviderServiceBaseUri);
+            Product result = await consumer.GetProduct(_mockProviderServiceBaseUri, "1");
         }
 
         [Fact]
